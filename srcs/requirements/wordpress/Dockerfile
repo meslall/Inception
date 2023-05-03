@@ -9,18 +9,15 @@ RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
     chmod +x wp-cli.phar && \
     mv wp-cli.phar /usr/local/bin/wp
 
-# RUN mkdir -p /var/www
 RUN mkdir -p /run/php
 
 COPY tools/script.sh /
 
 COPY tools/www.conf /
-# /etc/php/7.3/fpm/pool.d/WWW.conf
 
-# COPY tools/wp-config.php /wp-config.php
+# COPY tools/wp-config.php /
 
 RUN chmod +x script.sh
 
-# ENTRYPOINT [ "sh", "script.sh" ]
 
 CMD ./script.sh
